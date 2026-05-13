@@ -30,7 +30,7 @@
     "git": "git version 2.41.0.windows.3",
     "node": "v22.12.0",
     "npm": "10.9.0",
-    "python": "missing",
+    "python": "working via `py`, Python 3.14.3",
     "docker": "Docker version 28.5.1, build e180ab8"
   },
   "strengths": [],
