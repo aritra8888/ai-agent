@@ -1,31 +1,62 @@
-# AI Native Daily Learning Tracker
+# AI Agent Learning Monorepo
 
-This repo is the durable memory for your daily learning GPT.
+This repository tracks my 6-month AI-native engineering curriculum.
 
-The GPT should not rely on chat memory for progress tracking. It should read and update `progress/learning_state.json`, create daily logs under `logs/`, and maintain weekly summaries under `summaries/`.
+## Goal
 
-## Daily workflow
+Build real AI-native engineering skill through daily implementation, failure notes, Git commits, and weekly working artifacts.
 
-1. Start a new chat with the GPT.
-2. Say: `Today is Day X. Start my session.`
-3. GPT reads the curriculum and current learning state.
-4. GPT teaches the day's topics, quizzes you, and gives problems.
-5. At the end, say: `End Day X. Ask me what I completed and update my progress.`
-6. Commit the updated files.
+The target is to become strong at:
 
-## Core files
+- LLM APIs
+- Structured outputs
+- Tool calling
+- RAG
+- Agents
+- MCP
+- Evals
+- Observability
+- AI security
+- Production AI architecture
 
-- `curriculum/ai_native_engineering_6_month_curriculum.pdf` - source roadmap
-- `progress/learning_state.json` - compact state the GPT should read first
-- `logs/` - daily learning logs
-- `summaries/` - weekly/monthly summaries
-- `problems/` - generated problems and answers
-- `artifacts/` - links or notes for weekly shipped artifacts
-- `prompts/` - reusable prompts
-- `docs/GPT_INSTRUCTIONS.md` - paste this into the Custom GPT Instructions field
-- `actions/github-direct-openapi.yaml` - optional direct GitHub Action schema
-- `actions/relay-openapi.yaml` - safer schema if you build a small relay API
+## Repo Structure
 
-## Rule
+- apps/web: frontend app for chat UI, traces, dashboards, and approvals
+- apps/api-node: Node/TypeScript API gateway
+- apps/ai-python: Python/FastAPI AI service
+- packages/shared: shared schemas, types, and validation
+- packages/tool-gateway: tool execution, policy, audit, and approval layer
+- datasets/evals: evaluation datasets and test cases
+- docs: architecture notes, diagrams, setup notes, and threat models
+- logs: daily learning logs
+- problems: daily practice problems
+- progress: compact learning state used by the mentor GPT
+- summaries: weekly summaries and compression notes
 
-Do not store full chat transcripts in `learning_state.json`. Keep it small.
+## Daily Workflow
+
+1. Start the day with the mentor GPT.
+2. Paste the current `progress/learning_state.json`.
+3. Read the day plan.
+4. Learn the required concept.
+5. Build the required artifact.
+6. Write failure notes.
+7. End the day with the mentor GPT.
+8. Copy generated files into this repo.
+9. Commit and push.
+
+## Progress Tracking
+
+The file `progress/learning_state.json` is the source of truth for progress tracking.
+
+The Custom GPT does not directly write to GitHub yet. It generates files, and I manually copy them into the repo.
+
+## Rules
+
+- Day 0 is setup only.
+- Curriculum Day 1 starts after setup is complete.
+- Every learning day must end with a Git commit.
+- Do not commit secrets.
+- Use `.env.example`, never `.env`.
+- Keep progress state compact.
+- Keep failure notes honest.
