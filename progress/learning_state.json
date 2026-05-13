@@ -11,20 +11,45 @@
     "total_days": 182,
     "current_day": 0,
     "current_week": 0,
-    "current_phase": "Not started"
+    "current_phase": "Setup"
   },
   "progress": {
     "completed_days": [],
-    "current_status": "not_started",
-    "last_session_date": null,
+    "setup_day_completed": false,
+    "current_status": "setting_up",
+    "last_session_date": "2026-05-13",
     "last_commit": null,
     "weekly_artifacts": []
   },
+  "repo": {
+    "url": "https://github.com/aritra8888/ai-agent",
+    "tracking_mode": "manual_file_updates",
+    "github_actions_enabled": false
+  },
   "strengths": [],
-  "weaknesses": [],
-  "review_queue": [],
+  "weaknesses": [
+    {
+      "topic": "Custom GPT setup workflow",
+      "evidence": "Day 0: confused by Create, Configure, Knowledge, Capabilities, and Actions in the GPT builder.",
+      "review_action": "Use a fixed setup checklist and avoid Actions until manual workflow is stable.",
+      "status": "active"
+    }
+  ],
+  "review_queue": [
+    {
+      "topic": "Manual GitHub tracking workflow",
+      "reason": "Need to become comfortable with copying GPT-generated files into repo and committing daily.",
+      "target_day": 1,
+      "status": "pending"
+    }
+  ],
   "open_blockers": [],
-  "mentor_notes": [],
+  "mentor_notes": [
+    {
+      "day": 0,
+      "note": "Day 0 is setup only. Do not count it as curriculum Day 1."
+    }
+  ],
   "rules": {
     "state_update_policy": "Update this file only at end of day or explicit user request.",
     "memory_policy": "Keep only durable patterns. Do not store full chat transcripts.",
