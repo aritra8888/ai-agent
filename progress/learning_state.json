@@ -15,10 +15,9 @@
   },
   "progress": {
     "completed_days": [],
-    "setup_day_completed": false,
-    "current_status": "setting_up",
+    "setup_day_completed": true,
+    "current_status": "day_0_complete",
     "last_session_date": "2026-05-13",
-    "last_commit": null,
     "weekly_artifacts": []
   },
   "repo": {
