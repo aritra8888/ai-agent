@@ -1,0 +1,121 @@
+openapi: 3.1.0
+info:
+  title: Learning Tracker Relay API
+  version: 1.0.0
+  description: Safer custom API for a GPT Action. The relay owns GitHub auth and only exposes limited learning-tracker operations.
+servers:
+  - url: https://YOUR-RELAY-DOMAIN.example.com
+paths:
+  /state:
+    get:
+      operationId: getLearningState
+      summary: Get compact learning state.
+      responses:
+        '200':
+          description: Current learning state.
+    put:
+      operationId: updateLearningState
+      summary: Update compact learning state.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - state
+                - commitMessage
+              properties:
+                state:
+                  type: object
+                commitMessage:
+                  type: string
+      responses:
+        '200':
+          description: State updated.
+  /logs/day/{day}:
+    put:
+      operationId: upsertDailyLog
+      summary: Create or update daily markdown log.
+      parameters:
+        - name: day
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - markdown
+                - commitMessage
+              properties:
+                markdown:
+                  type: string
+                commitMessage:
+                  type: string
+      responses:
+        '200':
+          description: Daily log updated.
+  /problems/day/{day}:
+    put:
+      operationId: upsertDailyProblems
+      summary: Create or update daily problem set.
+      parameters:
+        - name: day
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - markdown
+                - commitMessage
+              properties:
+                markdown:
+                  type: string
+                commitMessage:
+                  type: string
+      responses:
+        '200':
+          description: Problems updated.
+  /issues/blocker:
+    post:
+      operationId: createBlockerIssue
+      summary: Create a GitHub issue for a real learning blocker.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - day
+                - title
+                - body
+              properties:
+                day:
+                  type: integer
+                title:
+                  type: string
+                body:
+                  type: string
+      responses:
+        '201':
+          description: Blocker issue created.
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Learning-Tracker-Key
+security:
+  - apiKeyAuth: []

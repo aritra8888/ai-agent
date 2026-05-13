@@ -1,0 +1,33 @@
+{
+  "learner_profile": {
+    "level": "novice-to-ai-native-engineering-track",
+    "background": "Senior MERN developer",
+    "daily_time_budget_hours": 2,
+    "preferred_style": "direct, practical, no fluff",
+    "mentor_mode": true
+  },
+  "curriculum": {
+    "name": "AI-Native Engineering Curriculum",
+    "total_days": 182,
+    "current_day": 0,
+    "current_week": 0,
+    "current_phase": "Not started"
+  },
+  "progress": {
+    "completed_days": [],
+    "current_status": "not_started",
+    "last_session_date": null,
+    "last_commit": null,
+    "weekly_artifacts": []
+  },
+  "strengths": [],
+  "weaknesses": [],
+  "review_queue": [],
+  "open_blockers": [],
+  "mentor_notes": [],
+  "rules": {
+    "state_update_policy": "Update this file only at end of day or explicit user request.",
+    "memory_policy": "Keep only durable patterns. Do not store full chat transcripts.",
+    "evidence_policy": "Mark a strength or weakness only after observed evidence. Include day number and reason."
+  }
+}
